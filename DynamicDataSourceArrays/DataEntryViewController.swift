@@ -11,10 +11,9 @@ import UIKit
 
 class DynamicData: NSObject {
     //array for to present data to view controller
-    //will work here but you might want it in separate for house keeping purposes (would'nt want 100+ classes in one file)
+    //will work here but you might want it in separate file for house keeping purposes (would'nt want 100+ classes in one file)
     
     var stringArray: [String] = [ ]
-    
 }
 
 class DataEntryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -22,22 +21,18 @@ class DataEntryViewController: UIViewController, UITableViewDataSource, UITableV
     //connect with DynamicData class for access to resources
     let dataSource = DynamicData()
     
-    
     @IBOutlet weak var dataSubmission: UITextField!
     @IBOutlet weak var submissionButtonOutlet: UIButton!
     
-
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var inputLabel: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         //give textField some color (note: the label color is set in storyBoard)
         dataSubmission.backgroundColor = UIColor.cyan
-        
     }
     
     @IBAction func submissionButton(_ sender: UIButton) {
@@ -79,8 +74,7 @@ class DataEntryViewController: UIViewController, UITableViewDataSource, UITableV
             dataSource.stringArray.append("please enter some text")
         } else {
             dataSource.stringArray.append(dataSubmission.text!)
-            
-            }
-           
         }
+        
+    }
 }
